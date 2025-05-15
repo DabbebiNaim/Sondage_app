@@ -7,16 +7,22 @@ from io import StringIO, BytesIO
 
 # --- 1. Data Loading & Preparation ---
 @st.cache_data
-def load_data(file_path=r"C:\Users\dabbe\OneDrive\Desktop\app sondage\Cadre Tunisie.csv"): # Use your corrected path
+def load_data(file_path="Cadre Tunisie.csv"): # <--- MODIFIED HERE
     """Loads the CSV data into a pandas DataFrame."""
     try:
-        df = pd.read_csv(file_path)
+        # Attempt to load with utf-8 encoding first, common for diverse text data
+        try:
+            df = pd.read_csv(file_path, encoding='utf-8')
+        except UnicodeDecodeError:
+            # If utf-8 fails, try latin1, another common encoding
+            st.warning(f"UTF-8 decoding failed for {file_path}. Trying 'latin1' encoding.")
+            df = pd.read_csv(file_path, encoding='latin1')
         return df
     except FileNotFoundError:
-        st.error(f"Error: The file '{file_path}' was not found. Make sure it's in the same directory as the script or the path is correct.")
+        st.error(f"Error: The file '{file_path}' was not found. Make sure it's in the root directory of your GitHub repository along with your app.py.")
         return None
     except Exception as e:
-        st.error(f"An error occurred while loading the file: {e}")
+        st.error(f"An error occurred while loading the file '{file_path}': {e}")
         return None
 
 # --- Helper function to make data downloadable ---
