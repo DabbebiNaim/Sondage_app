@@ -119,8 +119,10 @@ Pour exécuter cette application sur votre machine locale :
     *   Utilisez les boutons "Télécharger..." pour sauvegarder les résultats.
 
 ## Structure du Projet 📂
+```
 .
 ├── app.py # Le script principal de l'application Streamlit
 ├── Cadre Tunisie.csv # Le fichier de données du cadre de sondage (doit être présent)
 ├── requirements.txt # Les dépendances Python du projet
-└── README.md # Ce fichier d'information (ce document
+└── README.md # Ce fichier d'information
+```
