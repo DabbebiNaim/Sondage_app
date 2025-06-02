@@ -85,18 +85,12 @@ Pour exécuter cette application sur votre machine locale :
     ```
 
 3.  **Installez les dépendances :**
-    Assurez-vous d'avoir un fichier `requirements.txt` dans le répertoire racine du projet avec le contenu suivant :
-    ```txt
-    streamlit
-    pandas
-    numpy
-    matplotlib
-    seaborn
-    ```
-    Puis installez-les :
+    Assurez-vous que le fichier `requirements.txt` (fourni dans le dépôt) est présent dans le répertoire racine du projet.
+    Puis installez les dépendances :
     ```bash
     pip install -r requirements.txt
     ```
+    *Note : Ce fichier `requirements.txt` contient une liste complète des paquets de l'environnement de développement. Pour exécuter cette application spécifique, seules quelques dépendances clés (comme `streamlit`, `pandas`, `numpy`, `matplotlib`, `seaborn`) sont strictement nécessaires, mais l'utilisation du fichier fourni garantit la compatibilité.*
 
 4.  **Placez le fichier de données :**
     Assurez-vous que le fichier `Cadre Tunisie.csv` est accessible par l'application. Soit vous le placez à l'emplacement spécifié dans `app.py` (`C:\Users\dabbe\OneDrive\Desktop\app sondage\Cadre Tunisie.csv`), soit vous modifiez la fonction `load_data` dans `app.py` pour pointer vers le bon chemin (par exemple, si vous placez `Cadre Tunisie.csv` dans le même dossier que `app.py`, changez en `load_data(file_path="Cadre Tunisie.csv")`).
